@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:quotes/quote.dart';
 
@@ -28,39 +30,61 @@ List<Quote> quotesList = [
 ];
 
 class _quotesAppState extends State<quotesApp> {
+  int i = 0;
+
+  void _nextQuote() {
+    setState(() {
+      if (i < quotesList.length) {
+        i++;
+      }
+      if (i >= quotesList.length) {
+        i = 0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text('Quotes App'),
-        backgroundColor: Colors.grey[700],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-            child: Text(
-              quotesList[0].quoteText,
-              style: TextStyle(fontSize: 20.0),
+        backgroundColor: Colors.grey[200],
+        appBar: AppBar(
+          title: Text('Quotes App'),
+          backgroundColor: Colors.grey[700],
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Text(
+                quotesList[i].quoteText,
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
-          ),
-          Divider(
-            height: 20.0,
-            color: Colors.grey[600],
-            thickness: 1.0,
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.arrow_right
-            //size: 20.0,
-            //color: Colors.grey[600],
+            Divider(
+              height: 20.0,
+              color: Colors.grey[600],
+              thickness: 1.0,
             ),
-        backgroundColor: Colors.grey[600],
-      ),
-    );
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 75, 0, 0),
+              child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 30,
+                  height: 40,
+                  child: FloatingActionButton(
+                    onPressed: _nextQuote,
+                    backgroundColor: Colors.grey[600],
+                    child: Icon(
+                      Icons.arrow_right,
+                      size: 16.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
