@@ -48,7 +48,10 @@ class _quotesAppState extends State<quotesApp> {
     return Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
-          title: Text('Quotes App'),
+          title: Text(
+            'Quotes App',
+            style: TextStyle(fontSize: 20.0),
+          ),
           backgroundColor: Colors.grey[700],
         ),
         body: Column(
