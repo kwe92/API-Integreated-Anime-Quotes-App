@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/material.dart';
 import 'quote.dart';
 
 class QuoteCard extends StatelessWidget {
   final Quote quote;
+  final Function delete;
 
-  QuoteCard({required this.quote});
+  QuoteCard({required this.quote, required this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,21 @@ class QuoteCard extends StatelessWidget {
           children: [
             Text(quote.quoteText),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             Text(
               '- ${quote.author}',
               style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            ElevatedButton.icon(
+              onPressed: () {
+                delete();
+              },
+              icon: Icon(Icons.delete),
+              label: Text('Delete Quote'),
             )
           ],
         ),

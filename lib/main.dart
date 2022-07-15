@@ -44,7 +44,9 @@ class _quotesAppState extends State<quotesApp> {
   int i = 0;
 
   void delete(quote) {
-    quotesList.remove(quote);
+    setState(() {
+      quotesList.remove(quote);
+    });
   }
 
   @override
@@ -60,7 +62,16 @@ class _quotesAppState extends State<quotesApp> {
       ),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
-        children: quotesList.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotesList
+            .map((quote) => QuoteCard(
+                  quote: quote,
+                  delete: () {
+                    setState(() {
+                      quotesList.remove(quote);
+                    });
+                  },
+                ))
+            .toList(),
       ),
     );
   }
