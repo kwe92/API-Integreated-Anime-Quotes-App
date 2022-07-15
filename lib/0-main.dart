@@ -65,30 +65,39 @@ class _quotesAppState extends State<quotesApp> {
           backgroundColor: Colors.grey[700],
         ),
         body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: quotesList.map((quote) => QuoteCard(quote)).toList(),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Text(
+                quotesList[i].quoteText,
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+            Divider(
+              height: 20.0,
+              color: Colors.grey[600],
+              thickness: 1.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 75, 0, 0),
+              child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 30,
+                  height: 40,
+                  child: FloatingActionButton(
+                    onPressed: _nextQuote,
+                    backgroundColor: Colors.grey[600],
+                    child: Icon(
+                      Icons.arrow_right,
+                      size: 16.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ));
   }
-}
-
-Widget QuoteCard(quote) {
-  return Card(
-    margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(quote.quoteText),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            '- ${quote.author}',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          )
-        ],
-      ),
-    ),
-  );
 }
