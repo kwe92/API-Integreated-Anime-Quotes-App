@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quotes/quote.dart';
+import 'quoteCard.dart';
 
 void main() {
   return runApp(
@@ -66,29 +67,7 @@ class _quotesAppState extends State<quotesApp> {
         ),
         body: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
-          children: quotesList.map((quote) => QuoteCard(quote)).toList(),
+          children: quotesList.map((quote) => QuoteCard(quote: quote)).toList(),
         ));
   }
-}
-
-Widget QuoteCard(quote) {
-  return Card(
-    margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(quote.quoteText),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            '- ${quote.author}',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          )
-        ],
-      ),
-    ),
-  );
 }
