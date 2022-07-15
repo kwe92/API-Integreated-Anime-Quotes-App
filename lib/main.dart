@@ -43,31 +43,25 @@ List<Quote> quotesList = [
 class _quotesAppState extends State<quotesApp> {
   int i = 0;
 
-  void _nextQuote() {
-    setState(() {
-      if (i < quotesList.length) {
-        i++;
-      }
-      if (i >= quotesList.length) {
-        i = 0;
-      }
-    });
+  void delete(quote) {
+    quotesList.remove(quote);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
-        appBar: AppBar(
-          title: Text(
-            'Quotes App',
-            style: TextStyle(fontSize: 20.0),
-          ),
-          backgroundColor: Colors.grey[700],
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text(
+          'Quotes App',
+          style: TextStyle(fontSize: 20.0),
         ),
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: quotesList.map((quote) => QuoteCard(quote: quote)).toList(),
-        ));
+        backgroundColor: Colors.grey[700],
+      ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: quotesList.map((quote) => QuoteCard(quote: quote)).toList(),
+      ),
+    );
   }
 }
