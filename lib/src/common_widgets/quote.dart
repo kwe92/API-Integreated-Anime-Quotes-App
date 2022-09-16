@@ -5,6 +5,7 @@ class Quote {
   Quote({this.anime, this.quoteText});
   var anime;
   var quoteText;
+
   Future<void> fetchQuotes() async {
     final url = Uri.parse("https://animechan.vercel.app/api/random");
     final response = await http.get(url);
