@@ -25,8 +25,6 @@ class quotesApp extends StatefulWidget {
 List<Quote> quotesList = [];
 
 class _quotesAppState extends State<quotesApp> {
-  int i = 0;
-
   void setUpQuotesList() async {
     List<Quote> listQuotes = [];
 
@@ -54,28 +52,33 @@ class _quotesAppState extends State<quotesApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text(
-          'Quotes App',
-          style: TextStyle(fontSize: 20.0),
-        ),
-        backgroundColor: Colors.grey[700],
-      ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: quotesList
-            .map((quote) => QuoteCard(
-                  quote: quote,
-                  delete: () {
-                    setState(() {
-                      quotesList.remove(quote);
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.grey[200],
+          appBar: AppBar(
+            title: Text(
+              'Anime Quotes',
+              style: TextStyle(fontSize: 20.0),
+            ),
+            // backgroundColor: Colors.grey[700],
+          ),
+          body: ListView.builder(
+              itemCount: quotesList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return QuoteCard(
+                    quote: quotesList[index],
+                    delete: () {
+                      setState(() {
+                        if (quotesList.length > 1) {
+                          quotesList.removeAt(index);
+                          print(quotesList.length);
+                        } else {
+                          quotesList.removeAt(index);
+                          setUpQuotesList();
+                        }
+                      });
                     });
-                  },
-                ))
-            .toList(),
-      ),
+              })),
     );
   }
 }

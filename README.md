@@ -1,3 +1,8 @@
-# quotes-project-2
+# Random Anime Quotes App
 
-## A Basic Demo Quote App
+- An application in Flutter that generates 5 random anime quotes
+
+# Animechan API:
+
+- https://animechan.vercel.app/
+

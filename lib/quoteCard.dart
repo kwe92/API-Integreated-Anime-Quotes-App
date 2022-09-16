@@ -23,7 +23,7 @@ class QuoteCard extends StatelessWidget {
               height: 5,
             ),
             Text(
-              '- ${quote.author}',
+              '- ${quote.anime}',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(
