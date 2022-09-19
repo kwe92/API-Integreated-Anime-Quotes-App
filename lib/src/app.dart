@@ -8,17 +8,17 @@ class QuotesApp extends StatefulWidget {
   const QuotesApp({Key? key}) : super(key: key);
 
   @override
-  State<QuotesApp> createState() => _quotesAppState();
+  State<QuotesApp> createState() => _QuotesAppState();
 }
 
 // Global Variable
 List<Quote> quotesList = [];
 
-class _quotesAppState extends State<QuotesApp> {
+class _QuotesAppState extends State<QuotesApp> {
   void setUpQuotesList() async {
     AnimeChanApiClient api = AnimeChanApiClient();
     List<Quote> listQuotes = [
-      for (var i = 0; i < 1; i++) await api.fetchQuote()
+      for (var i = 0; i < 4; i++) await api.fetchQuote()
     ];
 
     setState(() {
@@ -42,11 +42,11 @@ class _quotesAppState extends State<QuotesApp> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.grey[200],
+          backgroundColor: Colors.grey[300],
           appBar: AppBar(
             title: const Text(
               'Anime Quotes',
-              style: TextStyle(fontSize: 20.0),
+              style: TextStyle(fontSize: 42.0, fontFamily: Fonts.main),
             ),
             backgroundColor: BackgroundColors.main,
           ),

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
 import 'package:quotes/src/constants/layout.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class QuoteCard extends StatelessWidget {
   const QuoteCard({required this.quote, required this.delete});
@@ -14,19 +14,41 @@ class QuoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey[200],
+      color: Colors.grey[300],
+      elevation: 5.0,
       margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  '"',
+                  style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                      color: BackgroundColors.main),
+                ),
+                Text(
+                  '"',
+                  style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                      color: BackgroundColors.main),
+                )
+              ],
+            ),
             Container(
-              padding: EdgeInsets.all(2),
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 2),
+              // color: Colors.grey[900],
               child: Text(
                 quote.quoteText,
+                textAlign: TextAlign.justify,
                 style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 18.0,
                     fontFamily: "Quicksand",
                     fontWeight: FontWeight.w500),
               ),
@@ -57,7 +79,7 @@ class QuoteCard extends StatelessWidget {
               ),
               label: Text(
                 'Delete Quote',
-                style: TextStyle(fontSize: 26.0, fontFamily: Fonts.main),
+                style: TextStyle(fontSize: 28.0, fontFamily: Fonts.main),
               ),
               style: ElevatedButton.styleFrom(primary: BackgroundColors.main),
             ),
@@ -67,3 +89,5 @@ class QuoteCard extends StatelessWidget {
     );
   }
 }
+
+Text returnText() => Text("");
