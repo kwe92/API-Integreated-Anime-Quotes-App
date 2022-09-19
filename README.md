@@ -1,6 +1,8 @@
 # Random Anime Quotes App
 
-- An application in Flutter that generates 5 random anime quotes
+- an application built in Flutter
+- generates random anime quotes
+- once the quote list is depleted another list is randomly generated
 
 # Animechan API:
 
