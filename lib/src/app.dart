@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quotes/src/common_widgets/quote.dart';
 import 'package:quotes/src/common_widgets/anime_chan_api_client.dart';
 import 'package:quotes/src/common_widgets/quote_card.dart';
+import 'package:quotes/src/constants/layout.dart';
 
 class QuotesApp extends StatefulWidget {
   const QuotesApp({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _quotesAppState extends State<QuotesApp> {
   void setUpQuotesList() async {
     AnimeChanApiClient api = AnimeChanApiClient();
     List<Quote> listQuotes = [
-      for (var i = 0; i < 5; i++) await api.fetchQuote()
+      for (var i = 0; i < 1; i++) await api.fetchQuote()
     ];
 
     setState(() {
@@ -47,7 +48,7 @@ class _quotesAppState extends State<QuotesApp> {
               'Anime Quotes',
               style: TextStyle(fontSize: 20.0),
             ),
-            // backgroundColor: Colors.grey[700],
+            backgroundColor: BackgroundColors.main,
           ),
           body: ListView.builder(
               itemCount: quotesList.length,
