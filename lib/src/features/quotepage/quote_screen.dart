@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:quotes/src/common_widgets/quote.dart';
-import 'package:quotes/src/common_widgets/anime_chan_api_client.dart';
-import 'package:quotes/src/common_widgets/quote_card.dart';
+import 'package:quotes/src/features/quotepage/quote.dart';
+import 'package:quotes/src/network/anime_chan_api_client.dart';
+import 'package:quotes/src/features/quotepage/quote_card.dart';
 import 'package:quotes/src/constants/layout.dart';
 
 class QuotesApp extends StatefulWidget {
@@ -46,7 +46,7 @@ class _QuotesAppState extends State<QuotesApp> {
           appBar: AppBar(
             title: const Text(
               'Anime Quotes',
-              style: TextStyle(fontSize: 42.0, fontFamily: Fonts.main),
+              style: TextStyle(fontSize: Sizes.p42, fontFamily: Fonts.main),
             ),
             backgroundColor: BackgroundColors.main,
           ),

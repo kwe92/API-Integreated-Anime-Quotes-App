@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
 import 'package:quotes/src/constants/layout.dart';
+import 'package:quotes/src/constants/layout.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class QuoteCard extends StatelessWidget {
@@ -10,7 +11,8 @@ class QuoteCard extends StatelessWidget {
       : super(key: key);
   final Quote quote;
   final Function delete;
-  final style = const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0);
+  final style =
+      const TextStyle(fontWeight: FontWeight.bold, fontSize: Sizes.p20);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class QuoteCard extends StatelessWidget {
       elevation: 5.0,
       margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(Sizes.p12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -29,14 +31,14 @@ class QuoteCard extends StatelessWidget {
                 Text(
                   '"',
                   style: TextStyle(
-                      fontSize: 26.0,
+                      fontSize: Sizes.p26,
                       fontWeight: FontWeight.bold,
                       color: BackgroundColors.main),
                 ),
                 Text(
                   '"',
                   style: TextStyle(
-                      fontSize: 26.0,
+                      fontSize: Sizes.p26,
                       fontWeight: FontWeight.bold,
                       color: BackgroundColors.main),
                 )
@@ -48,7 +50,7 @@ class QuoteCard extends StatelessWidget {
                 quote.quoteText,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: Sizes.p16,
                     fontFamily: "Quicksand",
                     fontWeight: FontWeight.w500),
               ),
@@ -62,7 +64,7 @@ class QuoteCard extends StatelessWidget {
                 '- ${quote.anime}',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 32.0,
+                    fontSize: Sizes.p32,
                     fontFamily: "Estonia"),
               ),
             ),
@@ -75,11 +77,11 @@ class QuoteCard extends StatelessWidget {
               },
               icon: Icon(
                 Icons.delete,
-                size: 16,
+                size: Sizes.p16,
               ),
               label: Text(
                 'Delete Quote',
-                style: TextStyle(fontSize: 28.0, fontFamily: Fonts.main),
+                style: TextStyle(fontSize: Sizes.p26, fontFamily: Fonts.main),
               ),
               style: ElevatedButton.styleFrom(primary: BackgroundColors.main),
             ),
