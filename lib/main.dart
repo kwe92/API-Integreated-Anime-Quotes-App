@@ -1,11 +1,9 @@
-// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:quotes/src/app.dart';
+import 'package:quotes/src/features/quotepage/quote_screen.dart';
 
 void main() {
   return runApp(
-    MaterialApp(
+    const MaterialApp(
       home: QuotesApp(),
     ),
   );

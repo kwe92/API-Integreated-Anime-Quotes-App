@@ -1,6 +1,6 @@
 // https://animechan.vercel.app/api/random
 import 'package:http/http.dart' as http;
-import 'package:quotes/src/common_widgets/quote.dart';
+import 'package:quotes/src/features/quotepage/quote.dart';
 import 'fetcherror.dart';
 import 'dart:convert';
 
