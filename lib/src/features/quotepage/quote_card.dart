@@ -23,8 +23,8 @@ class QuoteCard extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   '"',
                   style: TextStyle(
                       fontSize: Sizes.p26,
@@ -32,6 +32,13 @@ class QuoteCard extends StatelessWidget {
                       color: BackgroundColors.main),
                 ),
                 Text(
+                  quote.character,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: Sizes.p20,
+                      fontFamily: "Quicksand"),
+                ),
+                const Text(
                   '"',
                   style: TextStyle(
                       fontSize: Sizes.p26,
@@ -40,13 +47,14 @@ class QuoteCard extends StatelessWidget {
                 )
               ],
             ),
+            gapH4,
             Container(
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 2),
               child: Text(
                 quote.quoteText,
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
-                    fontSize: Sizes.p16,
+                    fontSize: Sizes.p20,
                     fontFamily: "Quicksand",
                     fontWeight: FontWeight.w500),
               ),
@@ -55,11 +63,11 @@ class QuoteCard extends StatelessWidget {
             Container(
               alignment: Alignment.bottomRight,
               child: Text(
-                '- ${quote.anime}',
+                "- ${quote.anime}",
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: Sizes.p32,
-                    fontFamily: "Estonia"),
+                    fontSize: Sizes.p16,
+                    fontFamily: "Quicksand"),
               ),
             ),
             gapH4,
@@ -69,7 +77,7 @@ class QuoteCard extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.delete,
-                size: Sizes.p16,
+                size: Sizes.p20,
               ),
               label: const Text(
                 'Delete Quote',
