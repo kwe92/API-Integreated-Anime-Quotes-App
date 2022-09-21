@@ -10,7 +10,7 @@ class AnimeChanApiClient {
     final url = Uri.parse(uri);
     final response = await http.get(url);
     if (response.statusCode != 200) {
-      throw FetchError();
+      throw FetchError(statusCode: response.statusCode);
     }
     final json = jsonDecode(response.body);
     final result = Quote.fromJSON(json);
