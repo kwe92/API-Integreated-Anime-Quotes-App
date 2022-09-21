@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Sizes {
+  static const p1 = 1.0;
+  static const p2 = 2.0;
   static const p4 = 4.0;
   static const p8 = 8.0;
   static const p12 = 12.0;
@@ -16,6 +18,8 @@ class Sizes {
   static const p42 = 42.0;
 }
 
+const gapH1 = SizedBox(height: Sizes.p1);
+const gapH2 = SizedBox(height: Sizes.p2);
 const gapH4 = SizedBox(height: Sizes.p4);
 const gapH8 = SizedBox(height: Sizes.p8);
 const gapH12 = SizedBox(height: Sizes.p12);
