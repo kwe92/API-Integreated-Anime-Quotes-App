@@ -13,14 +13,12 @@ class QuotesApp extends StatefulWidget {
   State<QuotesApp> createState() => _QuotesAppState();
 }
 
-// Global Variable
-List<Quote> quotesList = [];
-
 class _QuotesAppState extends State<QuotesApp> {
+  List<Quote> quotesList = [];
+
   void setUpQuotesList() async {
-    AnimeChanApiClient api = AnimeChanApiClient();
     List<Quote> listQuotes = [
-      for (var i = 0; i < 4; i++) await api.fetchQuote()
+      for (var i = 0; i < 4; i++) await AnimeChanApiClient.fetchQuote()
     ];
 
     setState(() {

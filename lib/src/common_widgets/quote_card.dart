@@ -6,7 +6,8 @@ import 'package:quotes/src/constants/layout.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class QuoteCard extends StatelessWidget {
-  const QuoteCard({required this.quote, required this.delete});
+  const QuoteCard({Key? key, required this.quote, required this.delete})
+      : super(key: key);
   final Quote quote;
   final Function delete;
   final style = const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0);
@@ -43,7 +44,6 @@ class QuoteCard extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.fromLTRB(10, 0, 10, 2),
-              // color: Colors.grey[900],
               child: Text(
                 quote.quoteText,
                 textAlign: TextAlign.justify,
