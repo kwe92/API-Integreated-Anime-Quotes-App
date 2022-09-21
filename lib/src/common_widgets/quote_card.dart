@@ -89,5 +89,3 @@ class QuoteCard extends StatelessWidget {
     );
   }
 }
-
-Text returnText() => Text("");

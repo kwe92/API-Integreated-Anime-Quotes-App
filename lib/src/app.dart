@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:quotes/src/common_widgets/quote.dart';
 import 'package:quotes/src/common_widgets/anime_chan_api_client.dart';
@@ -59,7 +61,7 @@ class _QuotesAppState extends State<QuotesApp> {
                       setState(() {
                         if (quotesList.length > 1) {
                           quotesList.removeAt(index);
-                          print(quotesList.length);
+                          stdout.write("${quotesList.length}\n");
                         } else {
                           quotesList.removeAt(index);
                           setUpQuotesList();
