@@ -36,7 +36,7 @@ class QuoteCard extends StatelessWidget {
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: Sizes.p20,
-                      fontFamily: "Quicksand"),
+                      fontFamily: Fonts.quicksand),
                 ),
                 const Text(
                   '"',
@@ -55,7 +55,7 @@ class QuoteCard extends StatelessWidget {
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
                     fontSize: Sizes.p20,
-                    fontFamily: "Quicksand",
+                    fontFamily: Fonts.quicksand,
                     fontWeight: FontWeight.w500),
               ),
             ),
@@ -67,10 +67,51 @@ class QuoteCard extends StatelessWidget {
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: Sizes.p16,
-                    fontFamily: "Quicksand"),
+                    fontFamily: Fonts.quicksand),
               ),
             ),
             gapH4,
+            // Center(
+            //   child: ClipRRect(
+            //     borderRadius: BorderRadius.circular(5),
+            //     child: Stack(
+            //       children: [
+            //         Positioned.fill(
+            //           child: Container(
+            //             decoration: const BoxDecoration(
+            //               gradient: LinearGradient(
+            //                 colors: <Color>[
+            //                   Color.fromRGBO(121, 172, 179, 1),
+            //                   Color.fromARGB(255, 129, 182, 189),
+            //                   Color.fromARGB(255, 161, 214, 221)
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ),
+            //         IntrinsicHeight(
+            //           child: Row(
+            //             children: [
+            //               TextButton(
+            //                 style: TextButton.styleFrom(
+            //                     //padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+            //                     primary: Colors.white,
+            //                     textStyle: const TextStyle(
+            //                       fontSize: 20,
+            //                     )),
+            //                 onPressed: () {
+            //                   delete();
+            //                 },
+            //                 child: const Text("Delete Quote"),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // )
+
             ElevatedButton.icon(
               onPressed: () {
                 delete();
@@ -81,7 +122,7 @@ class QuoteCard extends StatelessWidget {
               ),
               label: const Text(
                 'Delete Quote',
-                style: TextStyle(fontSize: Sizes.p26, fontFamily: Fonts.main),
+                style: TextStyle(fontSize: Sizes.p30, fontFamily: Fonts.main),
               ),
               style: ElevatedButton.styleFrom(primary: BackgroundColors.main),
             ),
