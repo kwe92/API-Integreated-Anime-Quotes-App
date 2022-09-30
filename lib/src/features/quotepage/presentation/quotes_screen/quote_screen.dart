@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:quotes/src/features/quotepage/quote.dart';
-import 'package:quotes/src/network/anime_chan_api_client.dart';
-import 'package:quotes/src/features/quotepage/quote_card.dart';
+import 'package:quotes/src/features/quotepage/domain/quote.dart';
+import 'package:quotes/src/features/quotepage/data/anime_chan_api_client.dart';
+import 'package:quotes/src/features/quotepage/presentation/quotes_screen/quote_card.dart';
 import 'package:quotes/src/constants/layout.dart';
 
 class QuotesApp extends StatefulWidget {
