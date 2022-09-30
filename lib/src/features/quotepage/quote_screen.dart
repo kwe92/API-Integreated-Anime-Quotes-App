@@ -17,7 +17,7 @@ class _QuotesAppState extends State<QuotesApp> {
 
   void setUpQuotesList() async {
     List<Quote> listQuotes = [
-      for (var i = 0; i < 4; i++) await AnimeChanApiClient.fetchQuote()
+      for (var i = 0; i < 5; i++) await AnimeChanApiClient.fetchQuote()
     ];
 
     setState(() {
