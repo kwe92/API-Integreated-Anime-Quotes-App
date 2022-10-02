@@ -13,11 +13,20 @@ class QuotesApp extends StatefulWidget {
 }
 
 class _QuotesAppState extends State<QuotesApp> {
-  List<Quote> quotesList = [];
+  List<Object?> quotesList = [];
+  final _animeTitleController = TextEditingController();
+
+  void setUpQuotesListTitle(String title) async {
+    final quotesListTitle =
+        await AnimeChanApiClient.fetchQuote(title: title) as List<Object?>;
+    setState(() {
+      quotesList = quotesListTitle;
+    });
+  }
 
   void setUpQuotesList() async {
-    List<Quote> listQuotes = [
-      for (var i = 0; i < 5; i++) await AnimeChanApiClient.fetchQuote()
+    List<Object?> listQuotes = [
+      for (var i = 0; i < 3; i++) await AnimeChanApiClient.fetchQuote()
     ];
 
     setState(() {
@@ -41,31 +50,96 @@ class _QuotesAppState extends State<QuotesApp> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.grey[300],
-          appBar: AppBar(
-            title: const Text(
-              'Anime Quotes',
-              style: TextStyle(fontSize: Sizes.p42, fontFamily: Fonts.main),
+        backgroundColor: Colors.grey[300],
+        appBar: AppBar(
+          title: const Text(
+            'Anime Quotes',
+            style: TextStyle(
+              fontSize: Sizes.p42,
+              fontFamily: Fonts.main,
             ),
-            backgroundColor: BackgroundColors.main,
           ),
-          body: ListView.builder(
-              itemCount: quotesList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return QuoteCard(
-                    quote: quotesList[index],
-                    delete: () {
-                      setState(() {
-                        if (quotesList.length > 1) {
-                          quotesList.removeAt(index);
-                          stdout.write("${quotesList.length}\n");
-                        } else {
-                          quotesList.removeAt(index);
-                          setUpQuotesList();
-                        }
-                      });
-                    });
-              })),
+          backgroundColor: BackgroundColors.main,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: quotesList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return QuoteCard(
+                        quote: quotesList[index] as Quote,
+                        delete: () {
+                          setState(() {
+                            if (_animeTitleController.text.isEmpty) {
+                              if (quotesList.length > 1) {
+                                quotesList.removeAt(index);
+                                stdout.write("${quotesList.length}\n");
+                              } else {
+                                quotesList.removeAt(index);
+                                setUpQuotesList();
+                              }
+                            } else {
+                              if (quotesList.length > 1) {
+                                quotesList.removeAt(index);
+                                stdout.write("${quotesList.length}\n");
+                              } else {
+                                quotesList.removeAt(index);
+                                setUpQuotesListTitle(
+                                    _animeTitleController.text);
+                              }
+                            }
+                          });
+                        });
+                  },
+                ),
+              ),
+              ListTile(
+                title: TextFormField(
+                  controller: _animeTitleController,
+                  decoration: InputDecoration(
+                    label: const Text('Enter a anime...'),
+                    hintText: 'eg: Bleach, Naruto, One Piece...',
+                    border: const OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        _animeTitleController.clear();
+                      },
+                      icon: const Icon(Icons.clear),
+                    ),
+                  ),
+                  keyboardType: TextInputType.name,
+                ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.fromLTRB(Sizes.p26, 0, Sizes.p26, 0),
+                      child: MaterialButton(
+                        onPressed: () {
+                          setUpQuotesListTitle(_animeTitleController.text);
+                        },
+                        color: BackgroundColors.main,
+                        child: const Text(
+                          'Search',
+                          style: TextStyle(
+                              fontSize: Sizes.p26,
+                              fontFamily: Fonts.main,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
