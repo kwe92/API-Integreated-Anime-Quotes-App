@@ -80,6 +80,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_riverpod",
+      "rootUri": "file:///Users/kwe/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/kwe/Development/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -194,6 +200,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "riverpod",
+      "rootUri": "file:///Users/kwe/Development/flutter/.pub-cache/hosted/pub.dartlang.org/riverpod-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/kwe/Development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -208,6 +220,12 @@
     {
       "name": "stack_trace",
       "rootUri": "file:///Users/kwe/Development/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "state_notifier",
+      "rootUri": "file:///Users/kwe/Development/flutter/.pub-cache/hosted/pub.dartlang.org/state_notifier-0.7.2+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -266,7 +284,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-09-19T15:46:49.304752Z",
+  "generated": "2022-10-03T15:24:41.189487Z",
   "generator": "pub",
   "generatorVersion": "2.17.5"
 }

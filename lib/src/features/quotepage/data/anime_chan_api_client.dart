@@ -1,5 +1,6 @@
 // https://animechan.vercel.app/api/random
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:quotes/src/features/quotepage/domain/quote.dart';
 import 'dart:convert';
@@ -16,35 +17,32 @@ class FetchError {
 }
 
 class AnimeChanApiClient {
-  AnimeChanApiClient._();
-
-  static Future<Object> fetchQuote({String? title}) async {
-    if (title == null) {
-      const uri = "https://animechan.vercel.app/api/random";
-      final url = Uri.parse(uri);
-      final response = await http.get(url);
-      if (response.statusCode != 200) {
-        throw FetchError(statusCode: response.statusCode);
-      }
-      final json = jsonDecode(response.body);
-      final result = Quote.fromJSON(json);
-      return result;
-    } else {
-      List<Quote> quoteList = [];
-      final uri = "https://animechan.vercel.app/api/quotes/anime?title=$title";
-      final url = Uri.parse(uri);
-      final response = await http.get(url);
-      if (response.statusCode != 200) {
-        throw FetchError(statusCode: response.statusCode);
-      }
-      final List jsonList = jsonDecode(response.body);
-      jsonList.toSet().toList();
-      for (var json in jsonList.toSet().toList().getRange(0, 3)) {
-        quoteList.add(
-          Quote.fromJSON(json),
-        );
-      }
-      return quoteList;
+  static Future<Quote> _fetchQuoteData() async {
+    const uri = "https://animechan.vercel.app/api/random";
+    final url = Uri.parse(uri);
+    final response = await http.get(url);
+    if (response.statusCode != 200) {
+      throw FetchError(statusCode: response.statusCode);
     }
+    final json = jsonDecode(response.body);
+    final result = Quote.fromJSON(json);
+    return result;
+  }
+
+  Future<List<Quote>> fetchQuoteList() async {
+    List<Quote> listQuotes = [
+      for (var i = 0; i < 3; i++) await _fetchQuoteData()
+    ];
+    return listQuotes;
   }
 }
+
+final animeChanRepoProvider = Provider<AnimeChanApiClient>((ref) {
+  return AnimeChanApiClient();
+});
+
+final AutoDisposeFutureProvider<List<Quote>> animeQuoteListProvider =
+    FutureProvider.autoDispose((FutureProviderRef ref) {
+  final AnimeChanApiClient animeChanProvider = ref.watch(animeChanRepoProvider);
+  return animeChanProvider.fetchQuoteList();
+});
