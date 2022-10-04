@@ -27,7 +27,7 @@ const gapH16 = SizedBox(height: Sizes.p16);
 
 class Fonts {
   static const main = "Estonia";
-  static const quicksand = "Quicksand";
+  static const secondary = "Quicksand";
 }
 
 class BackgroundColors {

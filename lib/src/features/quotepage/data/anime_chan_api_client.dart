@@ -1,5 +1,6 @@
 // https://animechan.vercel.app/api/random
-import 'package:flutter/material.dart';
+// https://animechan.vercel.app/api/quotes/anime?title=naruto
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:quotes/src/features/quotepage/domain/quote.dart';
@@ -17,7 +18,8 @@ class FetchError {
 }
 
 class AnimeChanApiClient {
-  static Future<Quote> _fetchQuoteData() async {
+  const AnimeChanApiClient();
+  Future<Quote> _fetchQuoteData() async {
     const uri = "https://animechan.vercel.app/api/random";
     final url = Uri.parse(uri);
     final response = await http.get(url);
@@ -35,14 +37,34 @@ class AnimeChanApiClient {
     ];
     return listQuotes;
   }
+
+  Future<List<Quote>> fetchQuoteListTitle(String title) async {
+    final uri = "https://animechan.vercel.app/api/quotes/anime?title=$title";
+    final url = Uri.parse(uri);
+    final response = await http.get(url);
+    if (response.statusCode != 200) {
+      throw FetchError(statusCode: response.statusCode);
+    }
+    final jsonList = jsonDecode(response.body);
+    return [for (var json in jsonList) Quote.fromJSON(json)];
+  }
 }
 
 final animeChanRepoProvider = Provider<AnimeChanApiClient>((ref) {
-  return AnimeChanApiClient();
+  return const AnimeChanApiClient();
 });
 
-final AutoDisposeFutureProvider<List<Quote>> animeQuoteListProvider =
-    FutureProvider.autoDispose((FutureProviderRef ref) {
+final animeQuoteListProvider =
+    FutureProvider.autoDispose.family((ref, String title) {
   final AnimeChanApiClient animeChanProvider = ref.watch(animeChanRepoProvider);
-  return animeChanProvider.fetchQuoteList();
+  if (title.isEmpty) {
+    ref.onDispose(() {
+      debugPrint('Disposed animeQuoteListProvider');
+    });
+    return animeChanProvider.fetchQuoteList();
+  }
+  ref.onDispose(() {
+    debugPrint('Disposed animeQuoteListProvider');
+  });
+  return animeChanProvider.fetchQuoteListTitle(title);
 });

@@ -14,8 +14,8 @@ class QuoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.grey[300],
-      elevation: 5.0,
-      margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+      elevation: Sizes.p8,
+      margin: const EdgeInsets.fromLTRB(Sizes.p12, Sizes.p12, Sizes.p12, 0),
       child: Padding(
         padding: const EdgeInsets.all(Sizes.p12),
         child: Column(
@@ -36,7 +36,7 @@ class QuoteCard extends StatelessWidget {
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: Sizes.p20,
-                      fontFamily: Fonts.quicksand),
+                      fontFamily: Fonts.secondary),
                 ),
                 const Text(
                   '"',
@@ -49,13 +49,14 @@ class QuoteCard extends StatelessWidget {
             ),
             gapH4,
             Container(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 2),
+              padding:
+                  const EdgeInsets.fromLTRB(Sizes.p12, 0, Sizes.p12, Sizes.p4),
               child: Text(
                 quote.quoteText,
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
                     fontSize: Sizes.p20,
-                    fontFamily: Fonts.quicksand,
+                    fontFamily: Fonts.secondary,
                     fontWeight: FontWeight.w500),
               ),
             ),
@@ -67,51 +68,10 @@ class QuoteCard extends StatelessWidget {
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: Sizes.p16,
-                    fontFamily: Fonts.quicksand),
+                    fontFamily: Fonts.secondary),
               ),
             ),
             gapH4,
-            // Center(
-            //   child: ClipRRect(
-            //     borderRadius: BorderRadius.circular(5),
-            //     child: Stack(
-            //       children: [
-            //         Positioned.fill(
-            //           child: Container(
-            //             decoration: const BoxDecoration(
-            //               gradient: LinearGradient(
-            //                 colors: <Color>[
-            //                   Color.fromRGBO(121, 172, 179, 1),
-            //                   Color.fromARGB(255, 129, 182, 189),
-            //                   Color.fromARGB(255, 161, 214, 221)
-            //                 ],
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //         IntrinsicHeight(
-            //           child: Row(
-            //             children: [
-            //               TextButton(
-            //                 style: TextButton.styleFrom(
-            //                     //padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-            //                     primary: Colors.white,
-            //                     textStyle: const TextStyle(
-            //                       fontSize: 20,
-            //                     )),
-            //                 onPressed: () {
-            //                   delete();
-            //                 },
-            //                 child: const Text("Delete Quote"),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // )
-
             ElevatedButton.icon(
               onPressed: () {
                 delete();

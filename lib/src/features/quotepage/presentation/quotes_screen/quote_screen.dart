@@ -1,13 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:quotes/src/features/quotepage/domain/quote.dart';
 import 'package:quotes/src/features/quotepage/data/anime_chan_api_client.dart';
-import 'package:quotes/src/features/quotepage/domain/quote.dart';
 import 'package:quotes/src/features/quotepage/presentation/quotes_screen/quote_card.dart';
 import 'package:quotes/src/constants/layout.dart';
 
-//TODO: add the .family to FutureProvider to take user input
 class QuotesApp extends ConsumerStatefulWidget {
   const QuotesApp({Key? key}) : super(key: key);
 
@@ -16,42 +13,12 @@ class QuotesApp extends ConsumerStatefulWidget {
 }
 
 class _QuotesAppState extends ConsumerState<QuotesApp> {
-  List<Object?> quotesList = [];
   final _animeTitleController = TextEditingController();
-
-  // void setUpQuotesListTitle(String title) async {
-  //   final quotesListTitle =
-  //       await AnimeChanApiClient().fetchQuote(title: title) as List<Object?>;
-  //   setState(() {
-  //     quotesList = quotesListTitle;
-  //   });
-  // }
-
-  // void setUpQuotesList() async {
-  //   List<Object?> listQuotes = [
-  //     for (var i = 0; i < 1; i++) await AnimeChanApiClient().fetchQuote()
-  //   ];
-
-  //   setState(() {
-  //     quotesList = listQuotes;
-  //   });
-  // }
-
-  void delete(quote) {
-    setState(() {
-      quotesList.remove(quote);
-    });
-  }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   setUpQuotesList();
-  // }
 
   @override
   Widget build(BuildContext context) {
-    final quoteListValue = ref.watch(animeQuoteListProvider);
+    final quoteListValue =
+        ref.watch(animeQuoteListProvider(_animeTitleController.text));
     return quoteListValue.when(
       data: (quotesList) => SafeArea(
         child: Scaffold(
@@ -67,13 +34,14 @@ class _QuotesAppState extends ConsumerState<QuotesApp> {
             backgroundColor: BackgroundColors.main,
           ),
           body: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, Sizes.p16, 0, 0),
             child: Column(
               children: [
                 Expanded(
                   child: RefreshIndicator(
                     onRefresh: () {
-                      return ref.refresh(animeQuoteListProvider) as Future;
+                      return ref.refresh(animeQuoteListProvider(
+                          _animeTitleController.text)) as Future;
                     },
                     child: ListView.builder(
                       itemCount: quotesList.length,
@@ -87,7 +55,8 @@ class _QuotesAppState extends ConsumerState<QuotesApp> {
                                   stdout.write("${quotesList.length}\n");
                                 } else {
                                   quotesList.removeAt(index);
-                                  ref.refresh(animeQuoteListProvider);
+                                  ref.refresh(animeQuoteListProvider(
+                                      _animeTitleController.text));
                                 }
                               });
                             });
@@ -120,11 +89,14 @@ class _QuotesAppState extends ConsumerState<QuotesApp> {
                             Sizes.p26, 0, Sizes.p26, 0),
                         child: MaterialButton(
                           onPressed: () {
-                            //  setUpQuotesListTitle(_animeTitleController.text);
+                            setState(() {
+                              ref.refresh(animeQuoteListProvider(
+                                  _animeTitleController.text));
+                            });
                           },
                           color: BackgroundColors.main,
                           child: const Text(
-                            'Search',
+                            'Search by Title',
                             style: TextStyle(
                                 fontSize: Sizes.p26,
                                 fontFamily: Fonts.main,
