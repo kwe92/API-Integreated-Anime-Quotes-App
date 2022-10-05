@@ -6,7 +6,7 @@ void main() {
   return runApp(
     const ProviderScope(
       child: MaterialApp(
-        home: QuotesApp(),
+        home: QuotesScreen(),
       ),
     ),
   );

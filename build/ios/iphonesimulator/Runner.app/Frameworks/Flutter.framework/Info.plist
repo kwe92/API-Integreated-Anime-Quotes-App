@@ -21,9 +21,9 @@
   <key>CFBundleVersion</key>
   <string>1.0</string>
   <key>MinimumOSVersion</key>
-  <string>9.0</string>
+  <string>11.0</string>
   <key>FlutterEngine</key>
-  <string>6ba2af10bb05c88a2731482cedf2cfd11cf5af0b</string>
+  <string>5c984c26ebc4a0a8897305d3c6bef70ced91090d</string>
   <key>ClangVersion</key>
   <string>b'Apple clang version 13.0.0 (clang-1300.0.29.3)'</string>
 </dict>

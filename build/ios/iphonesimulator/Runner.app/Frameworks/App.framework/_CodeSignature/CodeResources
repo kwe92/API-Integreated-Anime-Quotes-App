@@ -6,7 +6,7 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		2WH3EkzfNpYxRzEQezsUEM18s6A=
+		85iaADE5tc/NukRC+KGdiZaZ0ZA=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		xsio0D0XomuKwAhHq3olQmnSPWA=
+		kvYUu9EI2cHl7qal6mu1RhzgPdo=
 		</data>
 		<key>flutter_assets/assets/gojo.jpeg</key>
 		<data>
@@ -38,19 +38,23 @@
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
-		eQjUSN4q35Uzd/55EBjW4jV/nYU=
+		9eNtWCqZBPKn/jN2myJwzQYoFMk=
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		6ju893UJ7eyxsRZVgOPv96xkSbk=
+		xyBPywCkszuMXod0BcGlvsIVXgk=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
 		</data>
+		<key>flutter_assets/shaders/ink_sparkle.frag</key>
+		<data>
+		9XJ1F9wQS7WfOC60iHTO0jAcY7w=
+		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
-		EGrx+ceECFYMCwgndwmfZXgJFDU=
+		h8pEgB2abbws6A/J7VE0iurKhow=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -73,7 +77,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TcB8Zz2no8U2wBFivlayQ6R/OA4zWtB3uTKxkJsBqKs=
+			KoTFjdtY9VPB/n6MKGak5sFWHa/kHrN66t7Olm5ZNA0=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/gojo.jpeg</key>
@@ -108,14 +112,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C7/dHOIHQrKZs9QJ05ge+h+ASynlvfrCK18NZnYRNOw=
+			DZWrzXugCmT3lP9BiZeEAyWKTGQC9NVtCJQakLOdYDc=
 			</data>
 		</dict>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QUqjWKLqi0GhYYgnRbebJ15VFXr6AqKXmavpCsAHxIM=
+			tLLPANhRdfDpkNP/YD9xWZOGVcsBdK8mBtDRFoTiFC4=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -125,11 +129,18 @@
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
 			</data>
 		</dict>
+		<key>flutter_assets/shaders/ink_sparkle.frag</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EbBHEj6MtE8RTwiVRqpdjom4bFlcgh4SmdojvuGwnEI=
+			</data>
+		</dict>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cK33CI3s1P2SzbU//6hag8jxyl1KnDk2YkEoRBtUvuc=
+			nfs3sjv7oinwH9C9t8WvFHN0xSlF9POWHw5G1/7TY2A=
 			</data>
 		</dict>
 	</dict>
