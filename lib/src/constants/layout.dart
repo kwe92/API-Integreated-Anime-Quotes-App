@@ -18,6 +18,7 @@ class Sizes {
   static const p42 = 42.0;
 }
 
+
 const gapH1 = SizedBox(height: Sizes.p1);
 const gapH2 = SizedBox(height: Sizes.p2);
 const gapH4 = SizedBox(height: Sizes.p4);
