@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quotes/src/constants/layout.dart';
-import 'package:quotes/src/features/quotepage/data/anime_chan_api_client.dart';
+import 'package:quotes/src/features/quotepage/data/anime_chan_repository.dart';
 
 class QuoteScreenBottomPage extends ConsumerWidget {
   QuoteScreenBottomPage({Key? key}) : super(key: key);

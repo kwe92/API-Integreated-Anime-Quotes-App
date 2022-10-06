@@ -14,7 +14,7 @@ class ErrorScreen extends StatelessWidget {
         children: [
           const Spacer(),
           Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            padding: const EdgeInsets.fromLTRB(Sizes.p12, 0, Sizes.p12, 0),
             child: Text(
               error.toString(),
               style: const TextStyle(

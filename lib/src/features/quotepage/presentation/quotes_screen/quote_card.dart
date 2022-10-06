@@ -84,7 +84,8 @@ class QuoteCard extends StatelessWidget {
                 'Delete Quote',
                 style: TextStyle(fontSize: Sizes.p30, fontFamily: Fonts.main),
               ),
-              style: ElevatedButton.styleFrom(primary: BackgroundColors.main),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: BackgroundColors.main),
             ),
           ],
         ),

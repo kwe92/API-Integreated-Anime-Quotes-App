@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quotes/src/features/quotepage/data/anime_chan_api_client.dart';
+import 'package:quotes/src/features/quotepage/data/anime_chan_repository.dart';
 import 'package:quotes/src/features/quotepage/presentation/quotes_screen/loading_screen.dart';
 import 'package:quotes/src/common_widgets/base_layout.dart';
 import 'package:quotes/src/features/quotepage/presentation/quotes_screen/error_screen.dart';
