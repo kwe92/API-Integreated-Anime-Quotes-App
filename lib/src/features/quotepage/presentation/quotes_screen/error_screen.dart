@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quotes/src/constants/layout.dart';
 import 'package:quotes/src/common_widgets/base_layout.dart';
 import 'package:quotes/src/features/quotepage/presentation/quotes_screen/quote_screen.dart';
+import 'package:quotes/src/routing/app_router.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key, required this.error});
@@ -38,7 +40,10 @@ class ErrorScreen extends StatelessWidget {
                           builder: (context) => const QuotesScreen(),
                         ),
                       );
-                    },
+                    }
+                    //() => context.goNamed(AppRoute.home.name)
+
+                    ,
                     color: BackgroundColors.main,
                     child: const Text(
                       'Return',
