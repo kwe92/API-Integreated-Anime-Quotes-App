@@ -11,13 +11,12 @@ class Quote {
       quoteText: json["quote"] as String);
 
   @override
-  String toString() => """
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-Quote:
+    return other is Quote;
+  }
 
-$quoteText
-
-    - $anime
-
-""";
+  @override
+  int get hashCode => anime.hashCode ^ quoteText.hashCode ^ character.hashCode;
 }
