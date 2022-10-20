@@ -15,8 +15,8 @@ void main() {
       expect(result, [const Quote(anime: '', quoteText: '', character: '')]);
     });
 
-    test(
-        'fetchQuoteListByTitle(Avatar) returns [Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote()]',
-        () {});
+    // test(
+    //     'fetchQuoteListByTitle(Avatar) returns [Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote()]',
+    //     () {});
   });
 }
