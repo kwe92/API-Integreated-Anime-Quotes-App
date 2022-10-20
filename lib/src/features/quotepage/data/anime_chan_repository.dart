@@ -17,8 +17,8 @@ class FetchError {
   String toString() => "$message Status Code: $statusCode";
 }
 
-class AnimeChanApiClient {
-  const AnimeChanApiClient();
+class AnimeChanRepository {
+  const AnimeChanRepository();
   Future<Quote> _fetchQuoteData() async {
     const uri = "https://animechan.vercel.app/api/random";
     final url = Uri.parse(uri);
@@ -31,14 +31,14 @@ class AnimeChanApiClient {
     return result;
   }
 
-  Future<List<Quote>> fetchQuoteList() async {
+  Future<List<Quote>> fetchQuoteList({int length = 3}) async {
     List<Quote> listQuotes = [
-      for (var i = 0; i < 3; i++) await _fetchQuoteData()
+      for (var i = 0; i < length; i++) await _fetchQuoteData()
     ];
     return listQuotes;
   }
 
-  Future<List<Quote>> fetchQuoteListTitle(String title) async {
+  Future<List<Quote>> fetchQuoteListByTitle(String title) async {
     final uri = "https://animechan.vercel.app/api/quotes/anime?title=$title";
     final url = Uri.parse(uri);
     final response = await http.get(url);
@@ -50,13 +50,14 @@ class AnimeChanApiClient {
   }
 }
 
-final animeChanRepoProvider = Provider<AnimeChanApiClient>((ref) {
-  return const AnimeChanApiClient();
+final animeChanRepoProvider = Provider<AnimeChanRepository>((ref) {
+  return const AnimeChanRepository();
 });
 
 final animeQuoteListProvider =
     FutureProvider.autoDispose.family((ref, String title) {
-  final AnimeChanApiClient animeChanProvider = ref.watch(animeChanRepoProvider);
+  final AnimeChanRepository animeChanProvider =
+      ref.watch(animeChanRepoProvider);
   if (title.isEmpty) {
     ref.onDispose(() {
       debugPrint('Disposed animeQuoteListProvider');
@@ -66,5 +67,5 @@ final animeQuoteListProvider =
   ref.onDispose(() {
     debugPrint('Disposed animeQuoteListProvider');
   });
-  return animeChanProvider.fetchQuoteListTitle(title);
+  return animeChanProvider.fetchQuoteListByTitle(title);
 });
