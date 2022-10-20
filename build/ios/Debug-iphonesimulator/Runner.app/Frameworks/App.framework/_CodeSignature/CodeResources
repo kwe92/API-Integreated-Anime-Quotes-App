@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		bBTVUlppRHuBVShPln8w6mwIIXw=
+		TfApZUSoHY37fgOVcEIDB1brKhc=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -23,6 +23,10 @@
 		<key>flutter_assets/assets/gojo.jpeg</key>
 		<data>
 		IYTSin0J2rXmhuI5xusl5ADgU18=
+		</data>
+		<key>flutter_assets/assets/sololvl.jpeg</key>
+		<data>
+		VcxwavkQEj8K/CNi02sVaOT9xxM=
 		</data>
 		<key>flutter_assets/fonts/Estonia-Regular.ttf</key>
 		<data>
@@ -63,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			q/ukjYFD+iOgg/6i7QdlbrrKTsCh0UjN4GDh0MJzw4c=
+			HPdx50e3heE79g+OBIMFOej8GsjHS12IW1vuoZQ0BTk=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -85,6 +89,13 @@
 			<key>hash2</key>
 			<data>
 			86llYUWT6+nYp7UWG4F/U9m4zsSO8Vu/4EX68li3rpg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/sololvl.jpeg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ii0urDPi2gf3Il+7jDxoh0C4tPKlYzObr2vlwxLhU3Q=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/Estonia-Regular.ttf</key>
