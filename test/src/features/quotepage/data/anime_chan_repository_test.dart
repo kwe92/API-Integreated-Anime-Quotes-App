@@ -12,11 +12,12 @@ void main() {
   group('Anime Chan Repository', () {
     test('fetchQuoteList(length: 1) returns [Quote]', () async {
       final result = await animeChanRepository.fetchQuoteList(length: 1);
-      expect(result, [const Quote(anime: '', quoteText: '', character: '')]);
+      expect(result, [isA<Quote>()]);
     });
 
-    // test(
-    //     'fetchQuoteListByTitle(Avatar) returns [Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote(), Quote()]',
-    //     () {});
+    test('fetchQuoteListByTitle(Avatar) returns Future<List<Quote>>', () async {
+      final result = animeChanRepository.fetchQuoteListByTitle('Avatar');
+      expect(result, isA<Future<List<Quote>>>());
+    });
   });
 }
